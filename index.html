@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+	<meta charset="utf-8" />
+<meta name="Author" content="Apple Inc." />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="mask-icon" href="/apple-logo.svg" color="#333333">
+
+<link rel="stylesheet" href="/assets/styles/global.dist.css?45192119196" type="text/css" />
+<link rel="stylesheet" href="/assets/styles/dark-mode.css?41192100210" type="text/css" media="(prefers-color-scheme: dark)" data-color-scheme="dark" />
+
+<script src="/assets/scripts/lib/jquery/jquery-3.6.0.min.js?45192141144"></script>
+<script src="/assets/scripts/settings.js?11082121158"></script>
+<script src="/assets/scripts/language-locales.js?11082121158"></script>
+
+<script async src="/assets/scripts/lib/jquery/jquery.retinate.js?22062120158"></script>
+<script async src="/assets/scripts/global.js?26062125044"></script>
+<script async src="/assets/scripts/global-logout.js?26062125044"></script>
+
+	<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=SF+Pro&v=2" type="text/css" />
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=SF+Pro+Icons&v=1" type="text/css" />
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=SF+Mono&v=2" type="text/css" />
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=Apple+Icons&amp;v=1" type="text/css" />
+
+
+		<meta name="omni_page" content="Analyze HTTP traffic in Instruments  - WWDC21 - Videos" />
+	<title>Analyze HTTP traffic in Instruments  - WWDC21 - Videos - Apple Developer</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link type="text/css" rel="stylesheet" href="/videos/styles/videos.css?2">
+	<meta name="description" content="Learn to use the Instruments Network template to record and analyze your app's HTTP traffic. We'll show you how to explore and visualize...">
+
+	<meta property="og:url" content="https://developer.apple.com/videos/play/wwdc2021/10212/" />
+	<meta property="og:title" content="Analyze HTTP traffic in Instruments  - WWDC21 - Videos - Apple Developer" />
+	<meta property="og:description" content="Learn to use the Instruments Network template to record and analyze your app's HTTP traffic. We'll show you how to explore and visualize..." />
+	<meta property="og:site_name" content="Apple Developer" />
+	<meta property="og:type" content="website" />
+	<meta property="og:video" content="https://devstreaming-cdn.apple.com/videos/wwdc/2021/10212/4/20646031-B78D-4268-9B08-A74EC6ABB639/cmaf.m3u8" /> 
+	<meta property="og:video_secure_url" content="https://devstreaming-cdn.apple.com/videos/wwdc/2021/10212/4/20646031-B78D-4268-9B08-A74EC6ABB639/cmaf.m3u8" /> 
+	<meta property="og:video:type" content="vnd.apple.mpegURL" /> 
+	<meta property="og:video:width" content="1280" />
+	<meta property="og:video:height" content="720" />
+		<meta property="og:image" content="https://devimages-cdn.apple.com/wwdc-services/images/119/5123/5123_wide_250x141_2x.jpg" />
+		<meta property="og:locale" content="en_US" />
+
+</head>
+<body class="view-play theme-dark">
+
+	<link rel="stylesheet" href="/assets/styles/globalnav.css?30062125044" type="text/css" />
+
+<link rel="stylesheet" href="/assets/styles/suggest-lang.css?16222138151" type="text/css" />
+<div id="suggest-lang" class="ribbon hide">
+	<div class="ribbon-content-wrapper">
+		<div class="ribbon-content row">
+			<div class="column large-12 large-centered">
+				<a id="suggest-closer" class="icon icon-after icon-reset"></a>
+				<p><a href="#" id="suggest-link" class="ribbon-link more">View in English</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/assets/scripts/suggest-lang.js?46012143159"></script>
+<aside id="ac-gn-segmentbar" class="ac-gn-segmentbar" lang="en-US" dir="ltr">
+</aside>
+<input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate" />
+<nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US" dir="ltr"
+    data-www-domain="www.apple.com"
+    data-store-locale="us"
+    data-store-root-path="/us"
+    data-store-api="/[storefront]/shop/bag/status"
+    data-search-locale="en_US"
+    data-search-locale="en_US"
+    data-search-suggestions-api="/search-services/suggestions/"
+    data-search-defaultlinks-api="/search-services/suggestions/defaultlinks/"
+    data-search-suggestions-enabled="false">
+	<div class="ac-gn-content">
+		<ul class="ac-gn-header">
+			<li class="ac-gn-item ac-gn-menuicon">
+				<label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true">
+					<span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top">
+						<span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span>
+					</span>
+					<span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom">
+						<span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span>
+					</span>
+				</label>
+				<a href="#ac-gn-menustate" role="button" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open">
+					<span class="ac-gn-menuanchor-label">Global Nav Open Menu</span>
+				</a>
+				<a href="#" role="button" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close">
+					<span class="ac-gn-menuanchor-label">Global Nav Close Menu</span>
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-apple">
+				<a class="ac-gn-link ac-gn-link-apple-developer" href="/" data-analytics-title="appledeveloper home" id="ac-gn-firstfocus-small">
+					<span class="ac-gn-link-text">Apple Developer</span>
+				</a>
+			</li>
+		</ul>
+		<div class="ac-gn-search-placeholder-container" role="search">
+			<div class="ac-gn-search ac-gn-search-small">
+				<a id="ac-gn-link-search-small" class="ac-gn-link" href="/search/" data-analytics-title="search" data-analytics-click="search" data-analytics-intrapage-link aria-label="Search Developer">
+					<div class="ac-gn-search-placeholder-bar">
+						<div class="ac-gn-search-placeholder-input">
+							<div class="ac-gn-search-placeholder-input-text" aria-hidden="true">
+								<div class="ac-gn-link-search ac-gn-search-placeholder-input-icon"></div>
+								<span class="ac-gn-search-placeholder">Search Developer</span>
+							</div>
+						</div>
+						<div class="ac-gn-searchview-close ac-gn-searchview-close-small ac-gn-search-placeholder-searchview-close">
+							<span class="ac-gn-searchview-close-cancel" aria-hidden="true">Cancel</span>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<ul class="ac-gn-list">
+			<li class="ac-gn-item ac-gn-apple">
+				<a class="ac-gn-link ac-gn-link-apple-developer" href="/" data-analytics-title="appledeveloper home" id="ac-gn-firstfocus">
+					<span class="ac-gn-link-text">Apple Developer</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-discover">
+				<a class="ac-gn-link ac-gn-link-discover" href="/discover/" data-analytics-title="discover">
+					<span class="ac-gn-link-text">Discover</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-design">
+				<a class="ac-gn-link ac-gn-link-design" href="/design/" data-analytics-title="design">
+					<span class="ac-gn-link-text">Design</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-develop">
+				<a class="ac-gn-link ac-gn-link-develop" href="/develop/" data-analytics-title="develop">
+					<span class="ac-gn-link-text">Develop</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-distribute">
+				<a class="ac-gn-link ac-gn-link-distribute" href="/distribute/" data-analytics-title="distribute">
+					<span class="ac-gn-link-text">Distribute</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-dsupport">
+				<a class="ac-gn-link ac-gn-link-dsupport" href="/support/" data-analytics-title="dsupport">
+					<span class="ac-gn-link-text">Support</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-account">
+				<a class="ac-gn-link ac-gn-link-account" href="/account/" data-analytics-title="account">
+					<span class="ac-gn-link-text">Account</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search">
+				<a id="ac-gn-link-search" class="ac-gn-link ac-gn-link-search" href="/search/" data-analytics-title="search" data-analytics-click="search" data-analytics-intrapage-link aria-label="Search Developer"></a>
+			</li>
+		</ul>
+		<aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search">
+			<div class="ac-gn-searchview-content">
+				<div class="ac-gn-searchview-bar">
+					<div class="ac-gn-searchview-bar-wrapper">
+						<form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get">
+							<div class="ac-gn-searchform-wrapper">
+								<input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" aria-label="Search Developer" placeholder="Search Developer" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-owns="quicklinks suggestions" />
+								<button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit Search"></button>
+								<button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search">
+										<span class="ac-gn-searchform-reset-background"></span>
+									</button>
+							</div>
+						</form>
+						<button id="ac-gn-searchview-close-small" class="ac-gn-searchview-close ac-gn-searchview-close-small" aria-label="Cancel Search">
+								<span class="ac-gn-searchview-close-cancel" aria-hidden="true">
+									Cancel
+								</span>
+							</button>
+					</div>
+				</div>
+				<aside id="ac-gn-searchresults" class="ac-gn-searchresults hidden" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="">
+                    <section class="ac-gn-searchresults-section ac-gn-searchresults-section-defaultlinks">
+                        <div class="ac-gn-searchresults-section-wrapper">
+							<div class="search-group-checkbox hidden"><input id="group-input" type="checkbox" name="group-filter" value="hig">Limit search to <span id="group-search-label"></span></div>
+                            <h3 class="ac-gn-searchresults-header ac-gn-searchresults-animated">Quick Links</h3>
+                            <ul class="ac-gn-searchresults-list" id="defaultlinks" role="listbox">
+                            </ul>
+                            <span role="status" class="ac-gn-searchresults-count" aria-live="polite">5 Quick Links</span>
+                        </div>
+                    </section>
+                </aside>
+			</div>
+			<button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Cancel Search">
+					<span class="ac-gn-searchview-close-wrapper">
+						<span class="ac-gn-searchview-close-left"></span>
+						<span class="ac-gn-searchview-close-right"></span>
+					</span>
+				</button>
+		</aside>
+			</div>
+</nav>
+<div class="ac-gn-blur"></div>
+<div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+<div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+<script src="/assets/scripts/ac-globalnav.built.js?26062125044"></script>
+<link rel="stylesheet" href="/assets/styles/search.css?17042142133">
+<script src="/assets/scripts/search.js?36232135133"></script>
+
+
+			<!-- metrics -->
+<script>
+    /* RSID: */
+    var s_account="awdappledeveloper"
+</script>	
+<script src="/assets/metrics/scripts/analytics.js?10202020"></script>
+<script>
+    s.pageName= AC && AC.Tracking && AC.Tracking.pageName();
+    s.channel="www.en.developer"
+    s.channel="www.videos.developer";
+
+    
+    /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+    var s_code=s.t();if(s_code)document.write(s_code)
+</script>
+<!-- /metrics -->
+	
+	<link rel="stylesheet" property="stylesheet" href="/assets/styles/localnav.css" type="text/css" />
+<input type="checkbox" id="localnav-menustate" class="localnav-menustate"/>
+<nav id="localnav" class="localnav localnav-scrim theme-dark" data-sticky role="navigation">
+	<div class="localnav-wrapper">
+		<div class="localnav-background"></div>
+		<div class="localnav-content">
+			<h2 class="localnav-title">
+				<a href="/videos/">Videos</a>
+			</h2>
+
+			<div class="localnav-menu">
+				<a href="#localnav-menustate" class="localnav-menucta-anchor localnav-menucta-anchor-open" id="localnav-menustate-open">
+					<span class="localnav-menucta-anchor-label">Open Menu</span>
+				</a>
+				<a href="#" class="localnav-menucta-anchor localnav-menucta-anchor-close" id="localnav-menustate-close">
+					<span class="localnav-menucta-anchor-label">Close Menu</span>
+				</a>
+				<div class="localnav-menu-tray">
+					<ul class="localnav-menu-items">
+
+						<li class="localnav-menu-item">
+							
+								<a href="/videos/" class="localnav-menu-link">Collections</a>
+							
+						</li>
+						<li class="localnav-menu-item">
+							
+							<a href="/videos/topics/" class="localnav-menu-link link-topics">Topics</a>
+							
+							
+						</li>
+						<li class="localnav-menu-item">
+							
+							<a href="/videos/all-videos/" class="localnav-menu-link link-all-videos">All Videos</a>
+							
+						</li>
+					</ul>
+				</div>
+				<div class="localnav-actions localnav-actions-center">
+					<div class="localnav-action localnav-action-menucta" aria-hidden="true">
+						<label for="localnav-menustate" class="localnav-menucta">
+							<span class="localnav-menucta-chevron"></span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+<label id="localnav-curtain" for="localnav-menustate"></label>
+<script type="text/javascript" src="/assets/scripts/ac-localnav.built.js"></script>
+
+	<main id="main" class="main theme-dark" role="main">
+
+		<section class="bg-dark">
+
+			<section class="grid">
+
+				<section class="row">
+					<section class="column large-10 small-12  padding-top-small large-centered no-padding-bottom">
+						<!-- back link -->
+						<p class="back-link smaller">
+														<a class="icon icon-before icon-chevronleft" href="/videos/">More Videos</a>
+													</p>
+					</section>
+				</section>
+
+				<!-- video player -->
+				<section class="video-wrapper row">
+					<section class="column large-10 small-12  padding-top-small padding-bottom-small large-centered">
+												<video id="video" class="video large-centered" controls="" src="https://devstreaming-cdn.apple.com/videos/wwdc/2021/10212/4/20646031-B78D-4268-9B08-A74EC6ABB639/cmaf.m3u8" data-id="wwdc2021-10212">
+							
+						</video>
+						<div class="no-video-banner hidden">
+							<div class="no-video-copy">
+								<p>Streaming is available in most browsers,<br> and in the WWDC app.</p>
+							</div>
+							</span>
+						</div>
+											</section>
+				</section>
+
+			</section>
+
+		</section>
+
+		<section class="grid">
+
+			<!-- tab menu -->
+			<section class="tab-menu row divider-bottom">
+
+				<section class="column large-10 small-12  padding-top-small padding-bottom-small large-centered">
+
+					<ul class="tabs">
+						<li class="tab" data-supplement-id="details"><a href="#"><span class="smaller">Overview</span></a></li>
+
+												<li class="tab" data-supplement-id="transcript"><a href="#"><span class="smaller">Transcript</span></a></li>
+						<li class="tab right active" data-supplement-id="search">
+							<!-- mobile search -->
+							<a href="#"><span><!--icon--></span></a>
+							<!-- desktop search -->
+							<section class="searchbar-wrapper desktop" style="opacity:0;">
+								<button class="search-icon"></button>
+								<input class="active" type="text" autocomplete="off" placeholder="Search this video…">
+							</section>
+						</li>
+						
+												<section class="searchbar-wrapper mobile">
+							<input class="active" type="text" autocomplete="off" placeholder="Search this video…">
+						</section>
+						
+					</ul>
+				</section>
+
+			</section>
+
+			<!-- supplements -->
+			<section class="row">
+
+				<section class="column large-10 small-12  large-centered no-padding-top no-padding-bottom">
+
+					<ul class="supplements hidden">
+
+						<!-- details -->
+						<li class="supplement details " data-supplement-id="details">
+							
+							<h1>Analyze HTTP traffic in Instruments </h1>
+							<p>Learn to use the Instruments Network template to record and analyze your app's HTTP traffic. We'll show you how to explore and visualize the behavior of sessions, tasks, and individual HTTP requests to ensure data is transmitted efficiently and respects people's privacy.</p>
+							
+														<h2>Resources</h2>
+
+							<ul class="links small">
+																																					<li class="developerForum"><a href="https://developer.apple.com/forums/create/question?&tag1=176&tag2=309&tag3=55030" target="_blank">Have a question? Ask with tag wwdc21-10212</a></li>
+																																							<li class="developerForum"><a href="https://developer.apple.com/forums/tags/wwdc21-10212" target="_blank">Search the forums for tag wwdc21-10212</a></li>
+																											
+																	<li class="download">
+										<ul class="options">
+																						<li><a href="https://devstreaming-cdn.apple.com/videos/wwdc/2021/10212/4/20646031-B78D-4268-9B08-A74EC6ABB639/downloads/wwdc2021-10212_hd.mp4?dl=1">HD Video</a></li>
+																																	<li><a href="https://devstreaming-cdn.apple.com/videos/wwdc/2021/10212/4/20646031-B78D-4268-9B08-A74EC6ABB639/downloads/wwdc2021-10212_sd.mp4?dl=1">SD Video</a></li>
+																					</ul>
+									</li>
+																
+															</ul>
+							
+														<div class="divider-top margin-top-small padding-bottom-small"></div>
+							<h2>Related Videos</h2>
+														<h4>WWDC21</h4>
+								<ul class="links small">
+																			<li class="video">
+											<a href="/videos/play/wwdc2021/10094">Accelerate networking with HTTP/3 and QUIC</a>
+										</li>
+																			<li class="video">
+											<a href="/videos/play/wwdc2021/10085">Apple’s privacy pillars in focus</a>
+										</li>
+																			<li class="video">
+											<a href="/videos/play/wwdc2021/10239">Reduce network delays for your app</a>
+										</li>
+																			<li class="video">
+											<a href="/videos/play/wwdc2021/10095">Use async/await with URLSession</a>
+										</li>
+																	</ul>
+														<h4>WWDC 2019</h4>
+								<ul class="links small">
+																			<li class="video">
+											<a href="/videos/play/wwdc2019/411">Getting Started with Instruments</a>
+										</li>
+																	</ul>
+														
+							
+						</li>
+
+						<!-- transcript -->
+						<li class="supplement transcript" data-supplement-id="transcript" data-shortcut-base-url="/videos/play/wwdc2021-10212/">
+							<section>
+								<div class="margin-bottom-small download-transcript"><span id="get-transcript" class="icon icon-before icon-downloadcircle">Download</span></div>
+								<p><span class="sentence"><span data-start="0.0"> </span></span><span class="sentence"><span data-start="9.0">Welcome! My name is Kacper. </span></span><span class="sentence"><span data-start="11.0">I'm a Performance Tools Engineer at Apple, and today, </span></span><span class="sentence"><span data-start="14.0">together with Sergio, we'll be talking about the new </span></span><span class="sentence"><span data-start="16.0">HTTP Traffic Instrument available in Instruments 13. </span></span><span class="sentence"><span data-start="22.0">This Instrument, contained in the Network template, </span></span><span class="sentence"><span data-start="25.0">allows you to inspect HTTP traffic </span></span><span class="sentence"><span data-start="27.0">coming from your application </span></span><span class="sentence"><span data-start="28.0">through the Apple Networking stack.</p><p></span></span><span class="sentence"><span data-start="32.0">This approach comes with multiple benefits. </span></span><span class="sentence"><span data-start="35.0">It just works on all Apple devices. </span></span><span class="sentence"><span data-start="38.0">The entire traffic going through the URL loading system </span></span><span class="sentence"><span data-start="41.0">is exposed, even the ones sent </span></span><span class="sentence"><span data-start="43.0">with the new HTTP/3 protocol or over VPN. </span></span><span class="sentence"><span data-start="48.0">Because of the system integration, </span></span><span class="sentence"><span data-start="49.0">it attributes traffic to processes running on it, </span></span><span class="sentence"><span data-start="53.0">and since it's instrumenting </span></span><span class="sentence"><span data-start="54.0">Apple Networking frameworks, it even reveals requests </span></span><span class="sentence"><span data-start="57.0">hitting the on-disk cache or networking errors. </span></span><span class="sentence"><span data-start="60.0">All of this exposed in the context </span></span><span class="sentence"><span data-start="62.0">of higher-level API concepts that you are familiar with, </span></span><span class="sentence"><span data-start="66.0">such as URLSessions and URLSessionTasks. </span></span><span class="sentence"><span data-start="70.0">This tool will help you understand </span></span><span class="sentence"><span data-start="71.0">how your usage of the API </span></span><span class="sentence"><span data-start="73.0">translates to the lifetime of network requests. </span></span><span class="sentence"><span data-start="77.0">In this hands-on session, we will first get you familiar </span></span><span class="sentence"><span data-start="80.0">with how the Instruments UI reflects </span></span><span class="sentence"><span data-start="82.0">the API concepts you are using.</p><p></span></span><span class="sentence"><span data-start="85.0">After this quick introduction, we will transition to four demos </span></span><span class="sentence"><span data-start="89.0">that will illustrate how you can use the tool </span></span><span class="sentence"><span data-start="91.0">to detect both performance and correctness problems. </span></span><span class="sentence"><span data-start="95.0">And even if your app seems to work flawlessly, </span></span><span class="sentence"><span data-start="98.0">you will learn how to verify that it does </span></span><span class="sentence"><span data-start="101.0">what you think by auditing the traffic coming from it. </span></span><span class="sentence"><span data-start="105.0">Let's get started with how the Networking API maps </span></span><span class="sentence"><span data-start="108.0">to the Instruments visualization. </span></span><span class="sentence"><span data-start="110.0">This is how the HTTP Traffic trace </span></span><span class="sentence"><span data-start="112.0">is displayed in Instruments when I recorded </span></span><span class="sentence"><span data-start="115.0">my system traffic using the Network template. </span></span><span class="sentence"><span data-start="118.0">Navigation is structured around the track hierarchy, </span></span><span class="sentence"><span data-start="121.0">and that's what we will cover in detail first. </span></span><span class="sentence"><span data-start="124.0">The HTTP Traffic Instrument located at the top level </span></span><span class="sentence"><span data-start="127.0">shows you an overview of how many </span></span><span class="sentence"><span data-start="129.0">URLSession tasks were running in your trace </span></span><span class="sentence"><span data-start="132.0">at any given time, ideal for detecting spots </span></span><span class="sentence"><span data-start="135.0">with increased HTTP Traffic activity in your app's lifetime. </span></span><span class="sentence"><span data-start="139.0">The next hierarchy level shows a breakdown </span></span><span class="sentence"><span data-start="141.0">of activity by process. </span></span><span class="sentence"><span data-start="144.0">In addition to traffic from all of the debuggable processes, </span></span><span class="sentence"><span data-start="147.0">it allows you to inspect </span></span><span class="sentence"><span data-start="148.0">background traffic initiated by them. </span></span><span class="sentence"><span data-start="151.0">Contained below each process are all URLSessions used by it. </span></span><span class="sentence"><span data-start="155.0">And these correspond </span></span><span class="sentence"><span data-start="156.0">to the URLSession objects you create in code. </span></span><span class="sentence"><span data-start="160.0">The graph at this level allows you to inspect </span></span><span class="sentence"><span data-start="163.0">all individual task intervals. </span></span><span class="sentence"><span data-start="166.0">To get a better mapping between your session objects </span></span><span class="sentence"><span data-start="168.0">and the visualization, you can name them in code by setting </span></span><span class="sentence"><span data-start="172.0">the sessionDescription property on a session instance.</p><p></span></span><span class="sentence"><span data-start="177.0">On the last level, the traffic is broken down </span></span><span class="sentence"><span data-start="180.0">by requested domains. </span></span><span class="sentence"><span data-start="182.0">Graphs on this level show more details about tasks, </span></span><span class="sentence"><span data-start="185.0">including individual transactions that make up </span></span><span class="sentence"><span data-start="188.0">the tasks and their states.</p><p></span></span><span class="sentence"><span data-start="192.0">To get a better understanding of what tasks </span></span><span class="sentence"><span data-start="194.0">and transactions are, let's analyze an example.</p><p></span></span><span class="sentence"><span data-start="201.0">Here are a few tasks that are loading data </span></span><span class="sentence"><span data-start="203.0">from the selected domain. </span></span><span class="sentence"><span data-start="205.0">Let's focus on one of them </span></span><span class="sentence"><span data-start="206.0">to analyze the structure of a task.</p><p></span></span><span class="sentence"><span data-start="212.0">This single task interval has a lot of information. </span></span><span class="sentence"><span data-start="215.0">We can represent this in a more abstract manner to understand </span></span><span class="sentence"><span data-start="219.0">how Instruments visualization maps to the API being used.</p><p></span></span><span class="sentence"><span data-start="225.0">At the top level, we have a task object. </span></span><span class="sentence"><span data-start="229.0">A task is made up of one or more transactions.</p><p></span></span><span class="sentence"><span data-start="234.0">A transaction is a pair of an HTTP request </span></span><span class="sentence"><span data-start="237.0">and the corresponding response.</p><p></span></span><span class="sentence"><span data-start="242.0">The task level is the representation of how </span></span><span class="sentence"><span data-start="244.0">your code interacts with the API of the URL Loading System. </span></span><span class="sentence"><span data-start="248.0">When you create a task and call resume on it, </span></span><span class="sentence"><span data-start="251.0">the task interval starts. </span></span><span class="sentence"><span data-start="254.0">And it ends </span></span><span class="sentence"><span data-start="255.0">right before your completion block is called.</p><p></span></span><span class="sentence"><span data-start="260.0">Each task can be given a semantic name using </span></span><span class="sentence"><span data-start="263.0">the taskDescription property, which will be used </span></span><span class="sentence"><span data-start="267.0">to label the interval in Instruments. </span></span><span class="sentence"><span data-start="270.0">We also show the task identifier as part of the task label. </span></span><span class="sentence"><span data-start="275.0">You can use it to cross-reference </span></span><span class="sentence"><span data-start="276.0">the task with other data. </span></span><span class="sentence"><span data-start="279.0">If your task finishes with an error, </span></span><span class="sentence"><span data-start="282.0">its description will be presented </span></span><span class="sentence"><span data-start="283.0">on the interval label for easier debugging. </span></span><span class="sentence"><span data-start="287.0">As we mentioned before, a task can be made up </span></span><span class="sentence"><span data-start="290.0">of multiple transactions. </span></span><span class="sentence"><span data-start="292.0">Let's talk about these now. </span></span><span class="sentence"><span data-start="294.0">Here we have a task to load the start page of apple.com. </span></span><span class="sentence"><span data-start="299.0">However, this URL is not the canonical URL. </span></span><span class="sentence"><span data-start="303.0">The task requests apple.com, </span></span><span class="sentence"><span data-start="305.0">but the preferred domain is www.apple.com. </span></span><span class="sentence"><span data-start="310.0">When we create this task, the URL loading system </span></span><span class="sentence"><span data-start="312.0">initially creates a request to apple.com. </span></span><span class="sentence"><span data-start="317.0">Shortly after, it receives a redirect response </span></span><span class="sentence"><span data-start="319.0">from the server, </span></span><span class="sentence"><span data-start="321.0">stating that the preferred URL is actually www.apple.com.</p><p></span></span><span class="sentence"><span data-start="327.0">By default, we follow redirects, so instead of returning </span></span><span class="sentence"><span data-start="330.0">the 301 response, the URL loading system </span></span><span class="sentence"><span data-start="333.0">will create a new transaction to now load the preferred URL. </span></span><span class="sentence"><span data-start="338.0">The response from this second, successful transaction </span></span><span class="sentence"><span data-start="341.0">is what is returned back to the task.</p><p></span></span><span class="sentence"><span data-start="346.0">As mentioned before, a transaction represents </span></span><span class="sentence"><span data-start="349.0">the combination of the HTTP request and response. </span></span><span class="sentence"><span data-start="353.0">It aligns with what URLSession does under the hood </span></span><span class="sentence"><span data-start="356.0">to handle your task </span></span><span class="sentence"><span data-start="358.0">and contains all of the information of the HTTP layer, </span></span><span class="sentence"><span data-start="362.0">like the requested URL, </span></span><span class="sentence"><span data-start="363.0">information about the transferred data, </span></span><span class="sentence"><span data-start="365.0">and much more.</p><p></span></span><span class="sentence"><span data-start="368.0">Just like for the task, the transaction label </span></span><span class="sentence"><span data-start="371.0">gives you an overview of the transaction. </span></span><span class="sentence"><span data-start="374.0">Mainly, you get information about </span></span><span class="sentence"><span data-start="376.0">the request and the response.</p><p></span></span><span class="sentence"><span data-start="380.0">The track hierarchy tells you the domain </span></span><span class="sentence"><span data-start="382.0">that is requested, while you can find </span></span><span class="sentence"><span data-start="384.0">the path and query on the label itself.</p><p></span></span><span class="sentence"><span data-start="388.0">In addition to that, the interval label </span></span><span class="sentence"><span data-start="391.0">displays the HTTP version, </span></span><span class="sentence"><span data-start="394.0">the HTTP Method, </span></span><span class="sentence"><span data-start="396.0">and whether the request sent an Authorization </span></span><span class="sentence"><span data-start="399.0">or a Cookie header. </span></span><span class="sentence"><span data-start="401.0">These are often useful to understand </span></span><span class="sentence"><span data-start="403.0">authentication flows at a glance.</p><p></span></span><span class="sentence"><span data-start="407.0">For the response, you get the status code, </span></span><span class="sentence"><span data-start="410.0">whether the response contained a cookie, </span></span><span class="sentence"><span data-start="413.0">and the content type of the response. </span></span><span class="sentence"><span data-start="417.0">How long the request and the response took, </span></span><span class="sentence"><span data-start="419.0">as well as more detailed timing information </span></span><span class="sentence"><span data-start="422.0">about other work that is part of the transaction </span></span><span class="sentence"><span data-start="425.0">is captured by the transaction states. </span></span><span class="sentence"><span data-start="428.0">Let's analyze them in the context </span></span><span class="sentence"><span data-start="429.0">of a containing task. </span></span><span class="sentence"><span data-start="432.0">The start of the transaction is the point in time </span></span><span class="sentence"><span data-start="435.0">when the URL Loading System </span></span><span class="sentence"><span data-start="437.0">creates the transaction for making this request. </span></span><span class="sentence"><span data-start="441.0">It first checks whether we have a valid cached response already. </span></span><span class="sentence"><span data-start="445.0">And if that's not the case, it will try to schedule </span></span><span class="sentence"><span data-start="447.0">the request on a connection.</p><p></span></span><span class="sentence"><span data-start="452.0">Next, the transaction may have to wait a bit </span></span><span class="sentence"><span data-start="454.0">in the Blocked state, waiting for an available connection.</p><p></span></span><span class="sentence"><span data-start="460.0">The Sending Request state starts when the transaction </span></span><span class="sentence"><span data-start="463.0">is finally handled by a connection. </span></span><span class="sentence"><span data-start="466.0">It ends once we send the last byte </span></span><span class="sentence"><span data-start="468.0">of the request onto the network. </span></span><span class="sentence"><span data-start="471.0">Next, the transaction goes into an idle </span></span><span class="sentence"><span data-start="474.0">Waiting for Response state, </span></span><span class="sentence"><span data-start="476.0">followed by Receiving Response, which will track the span </span></span><span class="sentence"><span data-start="479.0">from the first to the last byte received from the server.</p><p></span></span><span class="sentence"><span data-start="484.0">The whole transaction will complete shortly </span></span><span class="sentence"><span data-start="486.0">after the last byte is received, once the URL Loading system </span></span><span class="sentence"><span data-start="490.0">has determined whether this was a successful response. </span></span><span class="sentence"><span data-start="494.0">In practice, the cache lookup and sending state </span></span><span class="sentence"><span data-start="497.0">for a GET request are usually much shorter, </span></span><span class="sentence"><span data-start="500.0">so it's more likely to appear like this.</p><p></span></span><span class="sentence"><span data-start="505.0">To show you some practical examples, </span></span><span class="sentence"><span data-start="507.0">I would like to hand over to my colleague, Sergio. </span></span><span class="sentence"><span data-start="510.0">He will walk you through an app he recently started developing </span></span><span class="sentence"><span data-start="513.0">to illustrate how the HTTP Instrument can help you </span></span><span class="sentence"><span data-start="516.0">with fixing performance and correctness issues. </span></span><span class="sentence"><span data-start="520.0">Thanks, Kacper. Hello, everyone. </span></span><span class="sentence"><span data-start="522.0">My name is Sergio Lopez, and I've been working </span></span><span class="sentence"><span data-start="524.0">on this app for dog lovers. </span></span><span class="sentence"><span data-start="526.0">Think of it like a social media platform but for dog pictures... </span></span><span class="sentence"><span data-start="530.0">only! </span></span><span class="sentence"><span data-start="531.0">People can post images of dogs and you get </span></span><span class="sentence"><span data-start="533.0">a stream of the most recent uploads! </span></span><span class="sentence"><span data-start="535.0">So when I open the app, it loads </span></span><span class="sentence"><span data-start="537.0">several new dog images, but I noticed that it takes </span></span><span class="sentence"><span data-start="540.0">quite some time for them to finish loading.</p><p></span></span><span class="sentence"><span data-start="545.0">Let's profile the app with the new HTTP Traffic </span></span><span class="sentence"><span data-start="548.0">instrument to help us improve this situation. </span></span><span class="sentence"><span data-start="552.0">In the "Product" menu, I'll choose </span></span><span class="sentence"><span data-start="554.0">the "Profile" option to profile my app in Instruments.</p><p></span></span><span class="sentence"><span data-start="559.0">This will build my app in the release configuration, </span></span><span class="sentence"><span data-start="562.0">to ensure I'm profiling my app as it would run for my users, </span></span><span class="sentence"><span data-start="565.0">with all optimizations turned on. </span></span><span class="sentence"><span data-start="569.0">Once the build is finished, </span></span><span class="sentence"><span data-start="570.0">Instruments will launch automatically. </span></span><span class="sentence"><span data-start="572.0">Upon starting, the standard template chooser </span></span><span class="sentence"><span data-start="575.0">of Instruments is displayed.</p><p></span></span><span class="sentence"><span data-start="579.0">In our case, I wanna choose the Network </span></span><span class="sentence"><span data-start="581.0">template on the bottom left, which gives us more information </span></span><span class="sentence"><span data-start="584.0">about general network connections my app makes, </span></span><span class="sentence"><span data-start="586.0">but also contains the new HTTP Tracing functionality.</p><p></span></span><span class="sentence"><span data-start="598.0">The track area now contains two tracks, one for each instrument. </span></span><span class="sentence"><span data-start="603.0">The bottom track is the existing Network Connections instrument, </span></span><span class="sentence"><span data-start="606.0">and the top track is the new HTTP Traffic instrument. </span></span><span class="sentence"><span data-start="610.0">We'll focus on this new instrument today. </span></span><span class="sentence"><span data-start="613.0">All I need to do now is hit "record." </span></span><span class="sentence"><span data-start="615.0">Instruments will then start my app and start recording.</p><p></span></span><span class="sentence"><span data-start="621.0">Before you can use this tool, </span></span><span class="sentence"><span data-start="623.0">you need to confirm that you understand </span></span><span class="sentence"><span data-start="625.0">the implications of capturing the networking traffic. </span></span><span class="sentence"><span data-start="627.0">It's very powerful, especially if you record all processes. </span></span><span class="sentence"><span data-start="631.0">The data captured includes everything that is sent, </span></span><span class="sentence"><span data-start="633.0">which may be personal and sensitive information, </span></span><span class="sentence"><span data-start="636.0">even up to user credentials. </span></span><span class="sentence"><span data-start="638.0">So, you should be very careful with the resulting trace files, </span></span><span class="sentence"><span data-start="641.0">and we want you to be aware. </span></span><span class="sentence"><span data-start="642.0">So let me confirm this.</p><p></span></span><span class="sentence"><span data-start="647.0">The app was launched </span></span><span class="sentence"><span data-start="648.0">and the images were slow to load.</p><p></span></span><span class="sentence"><span data-start="653.0">I will now stop the recording.</p><p></span></span><span class="sentence"><span data-start="658.0">Let's zoom in to the data we recorded </span></span><span class="sentence"><span data-start="659.0">by using Option-click and dragging </span></span><span class="sentence"><span data-start="661.0">over the area covering our HTTP traffic.</p><p></span></span><span class="sentence"><span data-start="668.0">Clicking on the disclosure indicator </span></span><span class="sentence"><span data-start="670.0">in the "HTTP Traffic" track on the top left </span></span><span class="sentence"><span data-start="673.0">will reveal the full track hierarchy </span></span><span class="sentence"><span data-start="675.0">that Kacper described earlier.</p><p></span></span><span class="sentence"><span data-start="680.0">I'll also increase the track height to show all intervals.</p><p></span></span><span class="sentence"><span data-start="692.0">At the top, there's the first task </span></span><span class="sentence"><span data-start="694.0">that queries the server for the list of images, </span></span><span class="sentence"><span data-start="696.0">which appear on the "Latest" section of the app.</p><p></span></span><span class="sentence"><span data-start="701.0">When this task completes, we create a new task to load </span></span><span class="sentence"><span data-start="704.0">a thumbnail for every image on the list that we received.</p><p></span></span><span class="sentence"><span data-start="709.0">I will now click-drag over the area covering the time frame </span></span><span class="sentence"><span data-start="712.0">it took to fetch the list of images, </span></span><span class="sentence"><span data-start="715.0">followed by the many requests </span></span><span class="sentence"><span data-start="716.0">to retrieve each individual image.</p><p></span></span><span class="sentence"><span data-start="724.0">By click-dragging over this area, </span></span><span class="sentence"><span data-start="726.0">a tool tip will be displayed, </span></span><span class="sentence"><span data-start="727.0">showing the duration of the selected time range. </span></span><span class="sentence"><span data-start="730.0">Overall, it took more than 7 seconds </span></span><span class="sentence"><span data-start="732.0">to finish loading the initial screen.</p><p></span></span><span class="sentence"><span data-start="736.0">The first few images load fairly quick. </span></span><span class="sentence"><span data-start="738.0">But as I scroll down, tasks that were started later </span></span><span class="sentence"><span data-start="741.0">took longer to complete, </span></span><span class="sentence"><span data-start="742.0">as noted by the increasing blocked states in purple. </span></span><span class="sentence"><span data-start="746.0">Seems like a congestion issue, where we have too many </span></span><span class="sentence"><span data-start="748.0">requests in parallel. </span></span><span class="sentence"><span data-start="750.0">Let's investigate one of the later tasks.</p><p></span></span><span class="sentence"><span data-start="757.0">By hovering over the task, the tool tip shows us </span></span><span class="sentence"><span data-start="759.0">the duration of the task </span></span><span class="sentence"><span data-start="761.0">and any of the child intervals we are hovering over. </span></span><span class="sentence"><span data-start="764.0">This task was blocked for the majority of the time.</p><p></span></span><span class="sentence"><span data-start="769.0">To understand why it was blocked, </span></span><span class="sentence"><span data-start="771.0">let's switch the track display </span></span><span class="sentence"><span data-start="773.0">to the "HTTP Transactions by Connection" view.</p><p></span></span><span class="sentence"><span data-start="778.0">In the track sidebar on the left, </span></span><span class="sentence"><span data-start="779.0">under the domain name, there's a downwards arrow </span></span><span class="sentence"><span data-start="782.0">we can click to switch the track display.</p><p></span></span><span class="sentence"><span data-start="787.0">Currently, we are drawing "Tasks." </span></span><span class="sentence"><span data-start="790.0">Let's switch to displaying "HTTP Transactions by Connection." </span></span><span class="sentence"><span data-start="798.0">This view will only display the transactions, </span></span><span class="sentence"><span data-start="801.0">and instead of grouping them by task, we can now </span></span><span class="sentence"><span data-start="804.0">find out which connection they got scheduled on.</p><p></span></span><span class="sentence"><span data-start="808.0">The transactions are grouped by the connection they used. </span></span><span class="sentence"><span data-start="812.0">Overall, there were six connections </span></span><span class="sentence"><span data-start="815.0">available to handle these transactions. </span></span><span class="sentence"><span data-start="817.0">Let's analyze the transactions </span></span><span class="sentence"><span data-start="819.0">issued on Connection 1 and investigate </span></span><span class="sentence"><span data-start="821.0">some of the thumbnail loading transactions further. </span></span><span class="sentence"><span data-start="825.0">From the top down, it's noticeable </span></span><span class="sentence"><span data-start="827.0">that each transaction is taking longer to complete. </span></span><span class="sentence"><span data-start="829.0">The purple blocked state for each </span></span><span class="sentence"><span data-start="831.0">successive transaction is increasing. </span></span><span class="sentence"><span data-start="834.0">In fact, there's a pretty clear staircase pattern here.</p><p></span></span><span class="sentence"><span data-start="839.0">Each transaction is blocked, until the previous transaction </span></span><span class="sentence"><span data-start="843.0">on the same connection has finished. </span></span><span class="sentence"><span data-start="845.0">Only then can it send its request. </span></span><span class="sentence"><span data-start="847.0">This pattern repeats for each subsequent transaction.</p><p></span></span><span class="sentence"><span data-start="851.0">This is called "Head of Line Blocking" </span></span><span class="sentence"><span data-start="854.0">and is one of the problems of using HTTP/1.</p><p></span></span><span class="sentence"><span data-start="858.0">The frustrating part is that these transactions </span></span><span class="sentence"><span data-start="861.0">aren't doing anything for the majority of the time. </span></span><span class="sentence"><span data-start="863.0">Instead, they spend most of their time blocked or waiting </span></span><span class="sentence"><span data-start="866.0">for the response from the server. </span></span><span class="sentence"><span data-start="868.0">We could be sending another request </span></span><span class="sentence"><span data-start="870.0">for the next transaction in line while waiting for the response </span></span><span class="sentence"><span data-start="873.0">of a previous transaction on the same connection, </span></span><span class="sentence"><span data-start="876.0">but that's not supported by HTTP/1. </span></span><span class="sentence"><span data-start="879.0">Head-of-line blocking is one of the main limitations </span></span><span class="sentence"><span data-start="882.0">of HTTP/1, and one of the main improvements </span></span><span class="sentence"><span data-start="885.0">of HTTP/2 is to avoid that effect by multiplexing </span></span><span class="sentence"><span data-start="888.0">several requests to the same server onto a single connection.</p><p></span></span><span class="sentence"><span data-start="894.0">In HTTP/2, we can actually start sending </span></span><span class="sentence"><span data-start="896.0">a second request while the first one is waiting for its response. </span></span><span class="sentence"><span data-start="900.0">Your app does not need to do anything to support it. </span></span><span class="sentence"><span data-start="903.0">All Apple platforms support HTTP/2, </span></span><span class="sentence"><span data-start="906.0">and starting in iOS 15 </span></span><span class="sentence"><span data-start="909.0">and macOS Monterey, HTTP/3 is supported as well. </span></span><span class="sentence"><span data-start="913.0">The client will pick the most modern HTTP version </span></span><span class="sentence"><span data-start="915.0">the server supports. </span></span><span class="sentence"><span data-start="917.0">If you wanna learn more about the differences between HTTP/1 </span></span><span class="sentence"><span data-start="921.0">and HTTP/2, </span></span><span class="sentence"><span data-start="923.0">and the additional benefits HTTP/3 provides, </span></span><span class="sentence"><span data-start="927.0">please watch the "Accelerate networking </span></span><span class="sentence"><span data-start="929.0">with HTTP/3 and QUIC" session. </span></span><span class="sentence"><span data-start="933.0">I've taken this trace, showed it to our server folks, </span></span><span class="sentence"><span data-start="936.0">and managed to convince them that we should </span></span><span class="sentence"><span data-start="938.0">really support HTTP/2. </span></span><span class="sentence"><span data-start="940.0">Now, let's run my app with the new </span></span><span class="sentence"><span data-start="942.0">server enhancements.</p><p></span></span><span class="sentence"><span data-start="945.0">Wow, this already feels faster! </span></span><span class="sentence"><span data-start="948.0">Let's confirm this with Instruments. </span></span><span class="sentence"><span data-start="950.0">So here's a trace I recorded </span></span><span class="sentence"><span data-start="951.0">after we turned on server support for HTTP/2. </span></span><span class="sentence"><span data-start="955.0">In the domain-specific track, none of our thumbnail-loading </span></span><span class="sentence"><span data-start="958.0">tasks seem to be blocked anymore for an extended amount of time. </span></span><span class="sentence"><span data-start="961.0">That's good! </span></span><span class="sentence"><span data-start="962.0">Let's switch to the "HTTP Transactions </span></span><span class="sentence"><span data-start="965.0">by Connection" view again.</p><p></span></span><span class="sentence"><span data-start="975.0">The first thing we notice is that there is </span></span><span class="sentence"><span data-start="977.0">only one connection. </span></span><span class="sentence"><span data-start="978.0">This is because we no longer need multiple connections </span></span><span class="sentence"><span data-start="981.0">to send concurrent requests, which also means we only need </span></span><span class="sentence"><span data-start="984.0">to pay the connection setup cost once. </span></span><span class="sentence"><span data-start="989.0">Focusing on the individual thumbnail-loading transactions, </span></span><span class="sentence"><span data-start="992.0">we notice that they basically spend </span></span><span class="sentence"><span data-start="993.0">no time in the "blocked" state. </span></span><span class="sentence"><span data-start="995.0">In fact, the amount of time is so small </span></span><span class="sentence"><span data-start="997.0">that it's not visible at this zoom level. </span></span><span class="sentence"><span data-start="1000.0">Eventually all transactions finish sending </span></span><span class="sentence"><span data-start="1003.0">their requests and are left waiting for a response. </span></span><span class="sentence"><span data-start="1007.0">As I scroll down, we can notice that responses </span></span><span class="sentence"><span data-start="1010.0">are making progress at the same time.</p><p></span></span><span class="sentence"><span data-start="1014.0">All in all, </span></span><span class="sentence"><span data-start="1017.0">we are done with all requests in under 3 seconds. </span></span><span class="sentence"><span data-start="1020.0">This is twice as fast as before. </span></span><span class="sentence"><span data-start="1022.0">Now that I've talked to the server folks </span></span><span class="sentence"><span data-start="1024.0">and switched from HTTP/1.1 to HTTP/2, </span></span><span class="sentence"><span data-start="1027.0">our images are loading much faster. </span></span><span class="sentence"><span data-start="1030.0">Let me relaunch the app and show you what else we can do. </span></span><span class="sentence"><span data-start="1034.0">When I tap on an image, the app loads the full-resolution </span></span><span class="sentence"><span data-start="1037.0">picture and shows how far away this photo was taken from me. </span></span><span class="sentence"><span data-start="1041.0">There's also a heart icon at the top right </span></span><span class="sentence"><span data-start="1043.0">that allows you to favorite that specific picture. </span></span><span class="sentence"><span data-start="1046.0">To do so, I need an account. </span></span><span class="sentence"><span data-start="1048.0">I allow people to use the app and browse the pictures </span></span><span class="sentence"><span data-start="1050.0">without an account, but to save favorited images, </span></span><span class="sentence"><span data-start="1053.0">sync them between devices, </span></span><span class="sentence"><span data-start="1055.0">and to upload new pictures, you need an account. </span></span><span class="sentence"><span data-start="1058.0">So let me log in here.</p><p></span></span><span class="sentence"><span data-start="1064.0">Great. Let me favorite another picture. </span></span><span class="sentence"><span data-start="1067.0">Oh, this dog looks cute! Let me add it to my favorites. </span></span><span class="sentence"><span data-start="1070.0">Wait, why do I have to log in again if I just did? </span></span><span class="sentence"><span data-start="1073.0">This isn't right. </span></span><span class="sentence"><span data-start="1074.0">My app should remember my log-in. </span></span><span class="sentence"><span data-start="1076.0">This worked before. </span></span><span class="sentence"><span data-start="1077.0">I'm gonna dismiss the log-in screen, </span></span><span class="sentence"><span data-start="1079.0">as I don't want to log in again.</p><p></span></span><span class="sentence"><span data-start="1083.0">I previously recorded a trace file </span></span><span class="sentence"><span data-start="1085.0">after reproducing the issue. </span></span><span class="sentence"><span data-start="1087.0">Let me open it with instruments to analyze the recording. </span></span><span class="sentence"><span data-start="1089.0">On the left, there's the task that corresponds </span></span><span class="sentence"><span data-start="1092.0">to when I pressed the favorite button for the first time.</p><p></span></span><span class="sentence"><span data-start="1096.0">To the right of it, there's the task that was </span></span><span class="sentence"><span data-start="1098.0">issued after I returned to the latest tab, </span></span><span class="sentence"><span data-start="1101.0">and the stream of images were refreshed.</p><p></span></span><span class="sentence"><span data-start="1104.0">Then, there's the task to load the full-resolution image </span></span><span class="sentence"><span data-start="1107.0">after I tapped on another dog picture.</p><p></span></span><span class="sentence"><span data-start="1111.0">And to the far right, there's the task corresponding </span></span><span class="sentence"><span data-start="1114.0">to the second time I tapped the favorite button.</p><p></span></span><span class="sentence"><span data-start="1117.0">The first task interval actually contains two transactions.</p><p></span></span><span class="sentence"><span data-start="1127.0">The first transaction received a 401-status code. </span></span><span class="sentence"><span data-start="1130.0">This was expected since we were not logged in. </span></span><span class="sentence"><span data-start="1133.0">The transaction is drawn in orange to indicate </span></span><span class="sentence"><span data-start="1136.0">that this is not a success on the HTTP level.</p><p></span></span><span class="sentence"><span data-start="1142.0">Then, there's a large, empty area in the task, </span></span><span class="sentence"><span data-start="1145.0">which represents the time I spent </span></span><span class="sentence"><span data-start="1147.0">entering the user name and password.</p><p></span></span><span class="sentence"><span data-start="1155.0">As soon as I'm done entering these credentials, </span></span><span class="sentence"><span data-start="1157.0">we retry the transaction. </span></span><span class="sentence"><span data-start="1160.0">The green color of the interval and the 201-status code </span></span><span class="sentence"><span data-start="1163.0">indicates it succeeded this time. </span></span><span class="sentence"><span data-start="1165.0">This interaction of an authentication challenge, </span></span><span class="sentence"><span data-start="1168.0">entering a password, and retrying the transaction </span></span><span class="sentence"><span data-start="1171.0">is another case the URL Loading system handles for us, </span></span><span class="sentence"><span data-start="1175.0">so these two transactions belong to the same task object.</p><p></span></span><span class="sentence"><span data-start="1181.0">Zooming out, we find the second attempt </span></span><span class="sentence"><span data-start="1184.0">at favoriting an image on the right. </span></span><span class="sentence"><span data-start="1186.0">The task object is displayed in gray, as my dismissing </span></span><span class="sentence"><span data-start="1189.0">of the log-in screen caused the task to be canceled, </span></span><span class="sentence"><span data-start="1193.0">which is also visible in its label. </span></span><span class="sentence"><span data-start="1195.0">The transaction interval is displayed in orange, </span></span><span class="sentence"><span data-start="1198.0">as we got a 401 response from the server again. </span></span><span class="sentence"><span data-start="1201.0">This task occurred after I attempted to like </span></span><span class="sentence"><span data-start="1203.0">another dog picture and was </span></span><span class="sentence"><span data-start="1205.0">prompted with the log-in for a second time. </span></span><span class="sentence"><span data-start="1208.0">We use a very basic log-in system, where the user sends </span></span><span class="sentence"><span data-start="1211.0">their credentials the first time, but once the server </span></span><span class="sentence"><span data-start="1213.0">verified the user credentials, it sets a cookie, </span></span><span class="sentence"><span data-start="1216.0">identifying the user, such that no credentials </span></span><span class="sentence"><span data-start="1218.0">need to be provided on following requests. </span></span><span class="sentence"><span data-start="1221.0">So I would've expected this task to have sent the proper cookie. </span></span><span class="sentence"><span data-start="1226.0">Let's determine whether that happened. </span></span><span class="sentence"><span data-start="1227.0">As Kacper explained earlier, there should be a small </span></span><span class="sentence"><span data-start="1230.0">cookie icon here next to the HTTP method, </span></span><span class="sentence"><span data-start="1233.0">had this transaction sent a Cookie header. </span></span><span class="sentence"><span data-start="1236.0">But there's no such icon here, which means no cookie was sent. </span></span><span class="sentence"><span data-start="1240.0">So that part isn't working. </span></span><span class="sentence"><span data-start="1241.0">Now the question is, did the server not </span></span><span class="sentence"><span data-start="1243.0">provide us with a cookie, or is the client not </span></span><span class="sentence"><span data-start="1245.0">sending one, even though it got one? </span></span><span class="sentence"><span data-start="1247.0">To find out, we need to investigate </span></span><span class="sentence"><span data-start="1249.0">the previous transaction, and check </span></span><span class="sentence"><span data-start="1251.0">whether we got a cookie from the server. </span></span><span class="sentence"><span data-start="1253.0">Here is the previous transaction, </span></span><span class="sentence"><span data-start="1255.0">the successful one from the first log-in request. </span></span><span class="sentence"><span data-start="1258.0">This one does have a cookie icon in the response portion </span></span><span class="sentence"><span data-start="1261.0">of the transaction label, so the server did send a cookie. </span></span><span class="sentence"><span data-start="1265.0">That's interesting. </span></span><span class="sentence"><span data-start="1267.0">So why didn't we send the cookie in the next transaction? </span></span><span class="sentence"><span data-start="1270.0">To get more information about this transaction </span></span><span class="sentence"><span data-start="1272.0">and investigate the cookie in detail, </span></span><span class="sentence"><span data-start="1274.0">I will switch to the "Transactions" list </span></span><span class="sentence"><span data-start="1276.0">in the detail view at the bottom.</p><p></span></span><span class="sentence"><span data-start="1285.0">The transaction is already selected here, </span></span><span class="sentence"><span data-start="1287.0">since the time cursor is placed inside of it in the track view.</p><p></span></span><span class="sentence"><span data-start="1292.0">The extended detail view in the bottom right </span></span><span class="sentence"><span data-start="1294.0">shows all request and response headers </span></span><span class="sentence"><span data-start="1296.0">of the currently-selected transaction.</p><p></span></span><span class="sentence"><span data-start="1300.0">And here is the Set-Cookie header that we expect. </span></span><span class="sentence"><span data-start="1303.0">At first glance, this cookie seems fine. </span></span><span class="sentence"><span data-start="1307.0">But oh, wait, do you see the expiry date? </span></span><span class="sentence"><span data-start="1309.0">It's March 2020. That's in the past! </span></span><span class="sentence"><span data-start="1312.0">So the server did send a cookie, </span></span><span class="sentence"><span data-start="1314.0">but it's an expired cookie. </span></span><span class="sentence"><span data-start="1316.0">No one likes expired cookies! </span></span><span class="sentence"><span data-start="1319.0">This will lead the URLSession to not send the cookie, </span></span><span class="sentence"><span data-start="1321.0">as it will only send cookies that are still valid.</p><p></span></span><span class="sentence"><span data-start="1325.0">This is a server-side bug. </span></span><span class="sentence"><span data-start="1327.0">I could send the trace file over to our server folks </span></span><span class="sentence"><span data-start="1329.0">for them to investigate the issue and have it resolved. </span></span><span class="sentence"><span data-start="1332.0">Now that we fixed the cookie issue, I can favorite </span></span><span class="sentence"><span data-start="1335.0">a couple more pictures without being prompted to log in. </span></span><span class="sentence"><span data-start="1338.0">In addition to the "Latest" tab, </span></span><span class="sentence"><span data-start="1340.0">there's also a "Favorite" tab, where we display a list </span></span><span class="sentence"><span data-start="1342.0">of all the dog images that the user has favorited. </span></span><span class="sentence"><span data-start="1345.0">Let's switch to that tab.</p><p></span></span><span class="sentence"><span data-start="1348.0">Great, there are a few favorites here that I added yesterday, </span></span><span class="sentence"><span data-start="1351.0">but for some reason, my recent favorites aren't showing up. </span></span><span class="sentence"><span data-start="1354.0">Let's try again. </span></span><span class="sentence"><span data-start="1356.0">Let's pick this dog, who seems to be enjoying a bath, </span></span><span class="sentence"><span data-start="1358.0">and let me favorite it. </span></span><span class="sentence"><span data-start="1360.0">Let's go back to my favorites and check if it appears.</p><p></span></span><span class="sentence"><span data-start="1365.0">Hm, it's still not there. </span></span><span class="sentence"><span data-start="1366.0">Let's use Instruments again to figure out what's going on. </span></span><span class="sentence"><span data-start="1370.0">I prepared a trace file for this already. </span></span><span class="sentence"><span data-start="1372.0">I expect to find a task loading the list of favorites </span></span><span class="sentence"><span data-start="1375.0">in the track view, but it's not visible at first glance. </span></span><span class="sentence"><span data-start="1379.0">Let me choose the track for my server domain, </span></span><span class="sentence"><span data-start="1382.0">to display only the requests issued to that domain. </span></span><span class="sentence"><span data-start="1386.0">We could then go to the detail view at the bottom, </span></span><span class="sentence"><span data-start="1389.0">which contains a list of all tasks for this domain.</p><p></span></span><span class="sentence"><span data-start="1392.0">There's quite a few requests here. </span></span><span class="sentence"><span data-start="1394.0">Let me use the detail filter at the bottom left </span></span><span class="sentence"><span data-start="1397.0">to search for all requests related to "Favorites," </span></span><span class="sentence"><span data-start="1400.0">so I can verify whether we even made a request.</p><p></span></span><span class="sentence"><span data-start="1407.0">Upon filtering, the results show we sent </span></span><span class="sentence"><span data-start="1409.0">several requests to load the list of favorites here. </span></span><span class="sentence"><span data-start="1412.0">Let's focus on the track view.</p><p></span></span><span class="sentence"><span data-start="1416.0">The cursor got positioned at the start of the task I selected </span></span><span class="sentence"><span data-start="1419.0">down in the detail view, so that makes it fairly easy </span></span><span class="sentence"><span data-start="1422.0">to find it in the track view above. </span></span><span class="sentence"><span data-start="1425.0">Let's zoom in to double-check.</p><p></span></span><span class="sentence"><span data-start="1435.0">So this was the first time we loaded </span></span><span class="sentence"><span data-start="1436.0">the list of favorites on the initial app launch. </span></span><span class="sentence"><span data-start="1439.0">This is fine.</p><p></span></span><span class="sentence"><span data-start="1446.0">Here, I favorited a new image, and after that, </span></span><span class="sentence"><span data-start="1450.0">we loaded the favorites again.</p><p></span></span><span class="sentence"><span data-start="1455.0">Well, there's a task interval here, but it's very short.</p><p></span></span><span class="sentence"><span data-start="1465.0">Yeah, this GET request only took a couple of milliseconds. </span></span><span class="sentence"><span data-start="1467.0">That's too fast to get a server response. </span></span><span class="sentence"><span data-start="1470.0">Let's switch to the "HTTP transactions </span></span><span class="sentence"><span data-start="1473.0">by connection" view again to get more details.</p><p></span></span><span class="sentence"><span data-start="1480.0">The first thing we notice is that this transaction </span></span><span class="sentence"><span data-start="1482.0">is not executed on a Connection, but on "Local Cache." </span></span><span class="sentence"><span data-start="1485.0">This shows us that the request was never sent on the network, </span></span><span class="sentence"><span data-start="1488.0">but rather loaded from the local cache. </span></span><span class="sentence"><span data-start="1491.0">This also explains why there is no "Waiting for Response" state, </span></span><span class="sentence"><span data-start="1494.0">since the transaction did not wait for a server.</p><p></span></span><span class="sentence"><span data-start="1499.0">So that's the problem: our request is cached, </span></span><span class="sentence"><span data-start="1502.0">so we don't actually ask the server, </span></span><span class="sentence"><span data-start="1503.0">and always get the cached response back. </span></span><span class="sentence"><span data-start="1505.0">One way to fix this would be to tell the server to set </span></span><span class="sentence"><span data-start="1507.0">a cache-control header, to never cache this response. </span></span><span class="sentence"><span data-start="1510.0">What we want is to reload the images every time the user </span></span><span class="sentence"><span data-start="1513.0">goes to the favorites tab and new images have been added. </span></span><span class="sentence"><span data-start="1517.0">What we don't want is to load the whole list </span></span><span class="sentence"><span data-start="1519.0">of images if there was no such change. </span></span><span class="sentence"><span data-start="1522.0">A good trade-off would be if we could ask the server, </span></span><span class="sentence"><span data-start="1525.0">"Hey, did anything change? </span></span><span class="sentence"><span data-start="1527.0">If so, please let me know." </span></span><span class="sentence"><span data-start="1530.0">That's actually something we can do </span></span><span class="sentence"><span data-start="1531.0">by setting a cache-policy on the request.</p><p></span></span><span class="sentence"><span data-start="1535.0">To update the code, let me go back to the task view </span></span><span class="sentence"><span data-start="1538.0">and select the task in question.</p><p></span></span><span class="sentence"><span data-start="1548.0">For each URLSession Task that got executed here...</p><p></span></span><span class="sentence"><span data-start="1554.0">We display the backtrace on the right, </span></span><span class="sentence"><span data-start="1556.0">where "resume" was called on the task.</p><p></span></span><span class="sentence"><span data-start="1561.0">It was resumed in the method sync, </span></span><span class="sentence"><span data-start="1562.0">in the ImageCollection type. </span></span><span class="sentence"><span data-start="1564.0">Let me open this in Xcode to make the change here.</p><p></span></span><span class="sentence"><span data-start="1569.0">Here, I have my URLRequest, </span></span><span class="sentence"><span data-start="1570.0">and now I wanna set my cache policy.</p><p></span></span><span class="sentence"><span data-start="1575.0">The cache policy I want is reloadRevalidatingCacheData, </span></span><span class="sentence"><span data-start="1579.0">which means that we ignore the local cache </span></span><span class="sentence"><span data-start="1581.0">and will make a request to the server to check </span></span><span class="sentence"><span data-start="1583.0">whether our cache is still valid. </span></span><span class="sentence"><span data-start="1585.0">If so, the server will send a 304 response code </span></span><span class="sentence"><span data-start="1588.0">to let us know to use the local cache. </span></span><span class="sentence"><span data-start="1591.0">If not, it will send the new data back. </span></span><span class="sentence"><span data-start="1594.0">Let's give it a try.</p><p></span></span><span class="sentence"><span data-start="1607.0">So these are my current favorited images, </span></span><span class="sentence"><span data-start="1608.0">and the dog taking a bath has been added. </span></span><span class="sentence"><span data-start="1611.0">Let's add another one.</p><p></span></span><span class="sentence"><span data-start="1615.0">Now, let's check the "Favorite" tab. </span></span><span class="sentence"><span data-start="1618.0">The image I just favorited now properly appears. </span></span><span class="sentence"><span data-start="1621.0">OK, great! That's fixed now as well. </span></span><span class="sentence"><span data-start="1624.0">Back to my colleague Kacper to cover checking </span></span><span class="sentence"><span data-start="1627.0">that your app and dependencies behave like you'd expect. </span></span><span class="sentence"><span data-start="1629.0">Just like Sergio showed before, </span></span><span class="sentence"><span data-start="1631.0">when I click on the "Favorite" tab </span></span><span class="sentence"><span data-start="1633.0">without being logged in, the log-in view is presented. </span></span><span class="sentence"><span data-start="1637.0">We already added Sign In with Apple </span></span><span class="sentence"><span data-start="1639.0">to make the log-in experience seamless. </span></span><span class="sentence"><span data-start="1642.0">However, our company has several pet-themed apps, </span></span><span class="sentence"><span data-start="1646.0">and another team is working on a shared log-in SDK to allow </span></span><span class="sentence"><span data-start="1649.0">users to reuse their account between the applications. </span></span><span class="sentence"><span data-start="1653.0">This SDK is currently in development, </span></span><span class="sentence"><span data-start="1656.0">and the other team has asked us whether it could </span></span><span class="sentence"><span data-start="1658.0">replace our classic log-in screen. </span></span><span class="sentence"><span data-start="1661.0">I got the SDK binary, called Pets, </span></span><span class="sentence"><span data-start="1664.0">which is distributed as an xcframework </span></span><span class="sentence"><span data-start="1667.0">so that it can be used on all platforms. </span></span><span class="sentence"><span data-start="1671.0">Integrating it into my Xcode project is as easy as dragging </span></span><span class="sentence"><span data-start="1675.0">and dropping it in the embedded frameworks section. </span></span><span class="sentence"><span data-start="1678.0">Now, all that is left is to add a button to our existing view. </span></span><span class="sentence"><span data-start="1683.0">I will navigate to the source code of our Log-inView.</p><p></span></span><span class="sentence"><span data-start="1689.0">I will first import the framework, </span></span><span class="sentence"><span data-start="1692.0">and then add the button to our SwiftUI VStack, </span></span><span class="sentence"><span data-start="1695.0">just below the Sign In with Apple.</p><p></span></span><span class="sentence"><span data-start="1700.0">Let's refresh our Swift UI Preview.</p><p></span></span><span class="sentence"><span data-start="1705.0">Here it is. </span></span><span class="sentence"><span data-start="1706.0">"Sign In with Pets" button </span></span><span class="sentence"><span data-start="1707.0">appeared on the preview, exactly where I want it. </span></span><span class="sentence"><span data-start="1711.0">That was, indeed, a really easy integration. </span></span><span class="sentence"><span data-start="1714.0">I am curious to check how quick this new log-in method will be. </span></span><span class="sentence"><span data-start="1717.0">And to measure this, I'll profile my application </span></span><span class="sentence"><span data-start="1720.0">with Instruments by using Product Profile Action.</p><p></span></span><span class="sentence"><span data-start="1730.0">I am choosing Network template. </span></span><span class="sentence"><span data-start="1733.0">And clicking "record" button </span></span><span class="sentence"><span data-start="1735.0">in the toolbar to launch the app.</p><p></span></span><span class="sentence"><span data-start="1743.0">My app has now launched. </span></span><span class="sentence"><span data-start="1745.0">I can now switch to the Log-in View. </span></span><span class="sentence"><span data-start="1748.0">Instruments is showing all of the networking traffic </span></span><span class="sentence"><span data-start="1751.0">occurring in the meantime. </span></span><span class="sentence"><span data-start="1753.0">I will expand it to inspect my app's URL session.</p><p></span></span><span class="sentence"><span data-start="1759.0">Here it is. </span></span><span class="sentence"><span data-start="1760.0">But wait. </span></span><span class="sentence"><span data-start="1762.0">I would expect only my main app URLSession to be here, </span></span><span class="sentence"><span data-start="1765.0">but seems that the Pets framework we just integrated </span></span><span class="sentence"><span data-start="1768.0">is making requests from its own session, </span></span><span class="sentence"><span data-start="1771.0">without me even clicking on the log-in button. </span></span><span class="sentence"><span data-start="1773.0">That's unexpected. </span></span><span class="sentence"><span data-start="1775.0">Let's stop the recording right now to investigate it further.</p><p></span></span><span class="sentence"><span data-start="1782.0">I will zoom in to a few first requests, </span></span><span class="sentence"><span data-start="1784.0">using option-click and drag.</p><p></span></span><span class="sentence"><span data-start="1790.0">There's many requests to some analytics endpoint, </span></span><span class="sentence"><span data-start="1793.0">and to get more details, I can click on this </span></span><span class="sentence"><span data-start="1795.0">"Pets Sign On Network" session </span></span><span class="sentence"><span data-start="1797.0">and list all of them in the detail view.</p><p></span></span><span class="sentence"><span data-start="1803.0">All of them are POST requests, and when I click on one, </span></span><span class="sentence"><span data-start="1807.0">I can see the backtrace on the right that tells us </span></span><span class="sentence"><span data-start="1810.0">which part of the code the request originated from.</p><p></span></span><span class="sentence"><span data-start="1816.0">So seems that request is going through CFNetwork, </span></span><span class="sentence"><span data-start="1819.0">invoked by Pets, just as expected. </span></span><span class="sentence"><span data-start="1822.0">But when we navigate deeper, </span></span><span class="sentence"><span data-start="1824.0">it seems like CoreLocation is being involved. </span></span><span class="sentence"><span data-start="1827.0">That's really suspicious, especially because </span></span><span class="sentence"><span data-start="1830.0">I didn't perform any action to trigger it. </span></span><span class="sentence"><span data-start="1833.0">I wonder if my location is being sent back </span></span><span class="sentence"><span data-start="1835.0">to the server and that's why CoreLocation </span></span><span class="sentence"><span data-start="1838.0">and CFNetwork are in the same backtrace.</p><p></span></span><span class="sentence"><span data-start="1842.0">I will verify that by inspecting </span></span><span class="sentence"><span data-start="1844.0">the corresponding HTTP transactions for these tasks. </span></span><span class="sentence"><span data-start="1848.0">To do this, I will switch detail </span></span><span class="sentence"><span data-start="1850.0">from the list of tasks to the list of transactions. </span></span><span class="sentence"><span data-start="1854.0">And select one of them.</p><p></span></span><span class="sentence"><span data-start="1858.0">In the extended detail on the bottom right, </span></span><span class="sentence"><span data-start="1860.0">it's visible that this request contains some </span></span><span class="sentence"><span data-start="1862.0">pretty standard headers, nothing to worry about. </span></span><span class="sentence"><span data-start="1866.0">But wait, look at the request body. </span></span><span class="sentence"><span data-start="1869.0">It's including my location coordinates, </span></span><span class="sentence"><span data-start="1871.0">and that's really bad. </span></span><span class="sentence"><span data-start="1873.0">Sending this information violates users' privacy. </span></span><span class="sentence"><span data-start="1877.0">We don't want to gather their location </span></span><span class="sentence"><span data-start="1878.0">without their consent and without a good reason. </span></span><span class="sentence"><span data-start="1882.0">So far, our app only requests this permission for legitimate </span></span><span class="sentence"><span data-start="1886.0">purposes that make the user experience better. </span></span><span class="sentence"><span data-start="1889.0">At this point, I will not go any further </span></span><span class="sentence"><span data-start="1891.0">with this SDK integration. </span></span><span class="sentence"><span data-start="1894.0">Instead, I will file a bug report </span></span><span class="sentence"><span data-start="1896.0">on the other team to inform them </span></span><span class="sentence"><span data-start="1898.0">about this unacceptable behavior that I detected. </span></span><span class="sentence"><span data-start="1901.0">And I can even use this Instruments trace </span></span><span class="sentence"><span data-start="1903.0">to generate necessary information for the bug report. </span></span><span class="sentence"><span data-start="1907.0">Let's save it on my desktop first.</p><p></span></span><span class="sentence"><span data-start="1911.0">I will name it "PrivacyViolation" </span></span><span class="sentence"><span data-start="1915.0">and hit "save." </span></span><span class="sentence"><span data-start="1918.0">xctrace, command line tool bundled with Instruments, </span></span><span class="sentence"><span data-start="1921.0">can be used to export this trace </span></span><span class="sentence"><span data-start="1923.0">to the HTTP Archive format, which is an industry standard </span></span><span class="sentence"><span data-start="1926.0">for exchange of information about HTTP Traffic. </span></span><span class="sentence"><span data-start="1931.0">To do this, I can simply run xctrace export command, </span></span><span class="sentence"><span data-start="1935.0">with input of my trace, and HAR export flag. </span></span><span class="sentence"><span data-start="1940.0">Let's run it now.</p><p></span></span><span class="sentence"><span data-start="1944.0">This command generates a file that I can now attach </span></span><span class="sentence"><span data-start="1947.0">in the bug report. </span></span><span class="sentence"><span data-start="1948.0">Someone receiving it can inspect the recorded information </span></span><span class="sentence"><span data-start="1951.0">in any tool that supports HAR, even if they don't have </span></span><span class="sentence"><span data-start="1955.0">Instruments installed on their machine.</p><p></span></span><span class="sentence"><span data-start="1958.0">HAR itself is a JSON-based format, </span></span><span class="sentence"><span data-start="1961.0">so it can also be opened </span></span><span class="sentence"><span data-start="1962.0">in the text editor or easily processed using scripts. </span></span><span class="sentence"><span data-start="1966.0">And even though it doesn't contain </span></span><span class="sentence"><span data-start="1968.0">instruments-specific details, </span></span><span class="sentence"><span data-start="1970.0">like URLSessions or backtraces, that still should be enough </span></span><span class="sentence"><span data-start="1974.0">for the other team to investigate this issue.</p><p></span></span><span class="sentence"><span data-start="1978.0">And that's how you can use HTTP Traffic Instrument </span></span><span class="sentence"><span data-start="1981.0">to diagnose source and content of traffic coming from </span></span><span class="sentence"><span data-start="1984.0">your application to make sure that you are in control </span></span><span class="sentence"><span data-start="1988.0">of what your app does at runtime. </span></span><span class="sentence"><span data-start="1990.0">Now that you're familiar with using the new </span></span><span class="sentence"><span data-start="1993.0">HTTP Traffic Instrument, go ahead and target your apps </span></span><span class="sentence"><span data-start="1996.0">to detect problems just like the ones we showed you today. </span></span><span class="sentence"><span data-start="2001.0">For easier debugging and having more context while doing so, </span></span><span class="sentence"><span data-start="2004.0">name your URLSession and task objects.</p><p></span></span><span class="sentence"><span data-start="2009.0">Always aim for adopting latest networking protocols. </span></span><span class="sentence"><span data-start="2013.0">And even if you don't find any performance or correctness </span></span><span class="sentence"><span data-start="2017.0">issues with your app, go ahead and verify </span></span><span class="sentence"><span data-start="2020.0">by how much data you're sending </span></span><span class="sentence"><span data-start="2022.0">to get rid of any unnecessary traffic. </span></span><span class="sentence"><span data-start="2024.0">Thank you for watching today, and we hope you have </span></span><span class="sentence"><span data-start="2027.0">a great time tracing your app's HTTP traffic. </span></span><span class="sentence"><span data-start="2030.0">[upbeat music]</span></span></p>
+							</section>
+						</li>
+
+						<!-- search -->
+						<li class="supplement search active" data-supplement-id="search">
+
+							<section class="transcript-results-summary">
+								<p class="message smaller lighter"><!-- to be populated --></p>
+								<p class="instructions smaller lighter text-center">Looking for something specific? Enter a topic above and jump straight to the good stuff.</p>
+								<p class="error smaller lighter italic text-center" style="display:none;">An error occurred when submitting your query. Please check your Internet connection and try again.</p>
+							</section>
+
+							<!-- search results -->
+							<ul class="transcript-results row">
+															</ul>
+
+						</li>
+
+					</ul>
+
+				</section>
+
+			</section>
+
+		</section>
+
+		<input id="analytics-meta" type="hidden" data-event-name="WWDC21" 
+		data-event-id="wwdc2021-10212" 
+		data-session-id="10212" 
+		data-video-name="Analyze HTTP traffic in Instruments " 
+		data-session-response-id="">
+	</main>
+
+	<link rel="stylesheet" href="/assets/styles/footer.dist.css?22022122216">
+<footer id="footer" class="footer" role="contentinfo" aria-labelledby="footer-label">
+    <div class="footer-content">
+        <h2 class="footer-label" id="footer-label">Developer Footer</h2>
+	<nav class="footer-breadcrumbs" aria-label="Breadcrumbs">
+		<a href="/" class="home footer-breadcrumbs-home"><span aria-hidden="true" class="footer-breadcrumbs-home-icon"></span><span class="footer-breadcrumbs-home-label">Developer</span></a>
+		<div class="footer-breadcrumbs-path">
+			<ol class="footer-breadcrumbs-list">
+				<li class="footer-breadcrumbs-item"><a href="/videos/">Videos</a></li>
+				<li class="footer-breadcrumbs-item"><a href="/videos/wwdc2021/">WWDC21</a></li>				<li class="footer-breadcrumbs-item">Analyze HTTP traffic in Instruments </li>
+			</ol>
+		</div>
+	</nav>
+	        <nav class="footer-directory with-5-columns" aria-label="Apple Developer Directory" role="navigation">
+    <!--googleoff: all-->
+    <div class="footer-directory-column">
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-discover" />
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-discover">
+                <h3 class="footer-directory-column-section-title"><a href="/discover/">Discover</a></h3>
+            </label>
+            <a href="#footer-directory-column-section-state-discover" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/ios/">iOS</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/ipados/">iPadOS</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/macos/">macOS</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/tvos/">tvOS</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/watchos/">watchOS</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/safari/">Safari and Web</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/games/">Games</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/business/">Business</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/education/">Education</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/wwdc/">WWDC</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-directory-column">
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-design" />
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-design">
+                <h3 class="footer-directory-column-section-title"><a href="/design/">Design</a></h3>
+            </label>
+            <a href="#footer-directory-column-section-state-design" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/design/human-interface-guidelines/">Human Interface Guidelines</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/design/resources/">Resources</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/videos/design/">Videos</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/design/awards/">Apple Design Awards</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/fonts/">Fonts</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/accessibility/">Accessibility</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/localization/">Localization</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/accessories/">Accessories</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-directory-column">
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-develop" />
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-develop">
+                <h3 class="footer-directory-column-section-title"><a href="/develop/">Develop</a></h3>
+            </label>
+            <a href="#footer-directory-column-section-state-develop" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/xcode/">Xcode</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/swift/">Swift</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/swift-playgrounds/">Swift Playgrounds</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/testflight/">TestFlight</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/documentation/">Documentation</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/videos/">Videos</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/download/">Downloads</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-directory-column">
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-distribute" />
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-distribute">
+                <h3 class="footer-directory-column-section-title"><a href="/distribute/">Distribute</a></h3>
+            </label>
+            <a href="#footer-directory-column-section-state-distribute" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/">Developer Program</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/">App Store</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/review/">App Review</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/macos/distribution/">Mac Software</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/business/distribute/">Apps for Business</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/safari/extensions/">Safari Extensions</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/promote/">Marketing Resources</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/softwarelicensing/">Trademark Licensing</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-directory-column">
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-support" />
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-support">
+                <h3 class="footer-directory-column-section-title"><a href="/support/">Support</a></h3>
+            </label>
+            <a href="#footer-directory-column-section-state-support" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/support/articles/">Articles</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/forums/">Developer Forums</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/bug-reporting/">Feedback &amp; Bug&nbsp;Reporting</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/system-status/">System Status</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/contact/">Contact Us</a></li>
+            </ul>
+        </div>
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-account" />
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-account">
+                <h3 class="footer-directory-column-section-title"><a href="/account/">Account</a></h3>
+            </label>
+            <a href="#footer-directory-column-section-state-account" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/account/ios/certificate/">Certificates, Identifiers &amp; Profiles</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://appstoreconnect.apple.com/">App Store Connect</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--googleon: all-->
+</nav>
+        <section class="footer-mini" vocab="http://schema.org/" typeof="Organization">
+	<div class="footer-mini-news">
+		<div class="copy">
+			To view the latest developer news, visit <a href="/news/">News and Updates</a>.
+		</div>
+		<div class="content">
+			<div class="color-scheme-toggle"
+				role="radiogroup"
+				tabindex="0"
+				aria-label="Select a color scheme preference">
+
+				<label data-color-scheme-option="light">
+
+					<input type="radio" value="light"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Light</div>
+
+				</label>
+
+				<label data-color-scheme-option="dark">
+
+					<input type="radio" value="dark"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Dark</div>
+
+				</label>
+
+				<label data-color-scheme-option="auto">
+
+					<input type="radio" value="auto"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Auto</div>
+
+				</label>
+
+			</div>
+			<script async src="/assets/scripts/color-scheme-toggle.js"></script>
+		</div>
+	</div>
+	<link rel="stylesheet" href="/assets/styles/language-dropdown.css?14182115158">
+	<div class="language-dropdown dropdown-container hidden">
+		<select class="dropdown" aria-label="Language Dropdown"></select>
+		<span class="dropdown-icon icon icon-chevrondown" aria-hidden="true"></span>
+	</div>
+	<script async src="/assets/scripts/lib/jquery/jquery.language-dropdown.js?26062125044"></script>
+	<div class="footer-mini-legal">
+		<div class="footer-mini-legal-copyright">Copyright ©  2021 <a href="https://www.apple.com">Apple Inc.</a> All rights reserved.</div>
+		<div class="footer-mini-legal-links">
+			<a class="footer-mini-legal-link" href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a>
+			<a class="footer-mini-legal-link" href="https://www.apple.com/legal/privacy/en-ww/">Privacy Policy</a>
+			<a class="footer-mini-legal-link" href="/support/terms/">Agreements and Guidelines</a>
+		</div>
+	</div>
+</section>
+
+    </div>
+</footer>
+
+	<script src="/assets/scripts/params.js"></script>
+	<script src="/assets/scripts/watchable.js"></script>
+	<script src="/assets/scripts/timeout.js"></script>
+
+	<script src="/videos/scripts/play/play.js?06082021"></script>
+	<script src="/videos/scripts/hls/rtc.min.js?06082021"></script>
+	<script src="/videos/scripts/hls/hls.min.js?06082021"></script>
+	
+</body>
+</html>
